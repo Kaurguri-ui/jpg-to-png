@@ -1,0 +1,14 @@
+# convert_images.py
+from PIL import Image
+import os
+
+def convert_images(folder):
+    for file in os.listdir(folder):
+        if file.endswith(".jpg"):
+            img = Image.open(os.path.join(folder, file))
+            new_name = file.replace(".jpg", ".png")
+            img.save(os.path.join(folder, new_name))
+            print(f"Converted: {file} -> {new_name}")
+
+folder_path = "your_folder"
+convert_images(folder_path)
